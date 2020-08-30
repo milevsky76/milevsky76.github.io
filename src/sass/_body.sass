@@ -1,0 +1,28 @@
+$maxWidth: 1920
+$minWidth: 320
+
+@mixin addSizeHeight($layoutSize, $mobileSize)
+	$additionalSize: $layoutSize - $mobileSize
+	$maxWidth: $maxWidth - $minWidth
+	font-size: calc(#{$mobileSize + px} + #{$additionalSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth}))
+	line-height: 1.5em
+
+@mixin LD
+	background-color: #000000
+	color: #ffffff
+
+body
+	min-width: #{$minWidth + px}
+	font-size: 16px
+	line-height: 1.5em
+	font-family: Consolas
+	color: #ffffff
+	background-color: #202020
+
+.container
+	max-width: #{$maxWidth + px}
+	margin: 0 auto
+	padding: 0 4.69%
+
+.line-dark
+	@include LD
