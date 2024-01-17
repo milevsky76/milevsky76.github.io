@@ -1,0 +1,50 @@
+// Размеры экрана
+$maxWidth: 1920;
+$minWidth: 320;
+
+$mobile-width: 320px;
+$table-width: 768px;
+$desktop-width: 1920px;
+
+$accent-400: #71abeb; // f9b84a
+$primary-400: #1a1a1a;
+$neutral-400: #e1e3e7;
+
+:root {
+    --clr-accent-400: 211, 75%, 68%; // #71abeb;
+    --clr-primary-400: 0, 0%, 10%; // #1a1a1a;
+    --clr-neutral-400: 220, 11%, 89%; //#e1e3e7;
+
+    --page-bg: hsl(var(--clr-neutral-400));
+    --text-color: hsl(var(--clr-primary-400));
+    --clr-text-hover: hsl(var(--clr-neutral-400));
+    --bgg: hsla(var(--clr-primary-400), 0.2);
+
+    --accent: #71abeb;
+
+    --family: 'Roboto Mono', monospace;
+
+    --social-telegram: #61a8de;
+    --social-github: #e74f2d;
+    --social-linkedin: #297bbb;
+    --social-yahoo: #5f09d6;
+
+    --fz: 16px;
+    --fw-regular: 400;
+    --fw-bold: 700;
+}
+
+.dark {
+    --page-bg: hsl(var(--clr-primary-400));
+    --text-color: hsl(var(--clr-neutral-400));
+    --clr-text-hover: hsl(var(--clr-primary-400));
+    --bgg: hsla(var(--clr-neutral-400), 0.2);
+}
+
+.sans-serif {
+    --family: sans-serif;
+}
+
+.serif {
+    --family: serif;
+}

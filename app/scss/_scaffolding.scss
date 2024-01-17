@@ -1,0 +1,67 @@
+body {
+    min-width: #{$minWidth + px};
+    font-family: var(--family);
+    // font-size: $fSize;
+    color: var(--text-color);
+    background-color: var(--page-bg);
+    background-image: url('../img/ripple.svg');
+    background-size: 320px auto;
+}
+
+// .container {
+//     max-width: #{$maxWidth + px};
+//     margin: 0 auto;
+//     padding: 0 5%;
+// }
+
+.container {
+    --max-width: 1920px;
+    --container-padding: 5%;
+
+    width: min(var(--max-width), 100% - (var(--container-padding) * 2));
+    margin-inline: auto;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}
+
+section {
+    // min-height: 100vh;
+    padding: 32px 0;
+}
+
+.button {
+    --bg-btn: hsl(var(--clr-accent-400));
+
+    display: inline-flex;
+    padding: 16px 32px;
+
+    color: var(--text-color);
+    @include addSizeHeight(18, 16);
+    font-weight: var(--fw-bold);
+    letter-spacing: 0.1rem;
+    text-align: center;
+
+    background-color: var(--bg-btn);
+    transition: 0.3s;
+
+    &:hover {
+        color: var(--clr-text-hover);
+    }
+}
+
+.non {
+    display: none !important;
+}
+
+.cg {
+    background-color: darkgoldenrod !important;
+}

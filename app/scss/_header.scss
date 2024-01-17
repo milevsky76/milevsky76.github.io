@@ -1,0 +1,29 @@
+.header {
+    // position: fixed;
+    position: sticky;
+    top: 0;
+    // left: 0;
+    // width: 100%;
+    padding: 32px 0;
+    background-color: var(--page-bg);
+    z-index: 100;
+    box-shadow: 0px 1px 0px 0px var(--bgg); //rgba(34, 60, 80, 0.2)
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.header__navbar {
+    position: absolute;
+    top: 100%;
+    left: -100%;
+}
+
+@media (min-width: 1280px) {
+    .header__navbar {
+        position: static;
+    }
+}

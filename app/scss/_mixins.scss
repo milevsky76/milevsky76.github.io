@@ -1,0 +1,6 @@
+@mixin addSizeHeight($layoutSize, $mobileSize) {
+    $additionalSize: $layoutSize - $mobileSize;
+    $maxWidth: $maxWidth - $minWidth;
+    font-size: calc(#{$mobileSize + px} + #{$additionalSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth}));
+    line-height: 1.5em;
+}

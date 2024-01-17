@@ -1,0 +1,66 @@
+.about {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.about__title {
+    margin: 0 0 32px;
+    font-weight: bold;
+    text-align: center;
+    @include addSizeHeight(60, 30);
+
+    span {
+        color: var(--accent);
+    }
+}
+
+.about__content {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+}
+
+.about__promo {
+    @include addSizeHeight(20, 16);
+    text-align: center;
+    grid-column: span 2;
+}
+
+.about__knowledge {}
+
+.about__skills {}
+
+.about__subtitle {
+    display: block;
+    margin-bottom: 16px;
+    @include addSizeHeight(24, 20);
+    color: var(--accent);
+    text-align: center;
+}
+
+.about__list {
+    list-style-type: none;
+    @include addSizeHeight(20, 16);
+
+    li::before {
+        content: '▪';
+        padding-right: 10px;
+        color: var(--accent);
+    }
+}
+
+.about__list li+li {
+    margin-top: 8px;
+}
+
+@media (max-width: 960px) {
+    .about__content {
+        grid-template-columns: auto;
+    }
+
+    .about__promo {
+        grid-column: span 1;
+    }
+}

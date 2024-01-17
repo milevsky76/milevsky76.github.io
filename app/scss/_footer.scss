@@ -1,0 +1,18 @@
+.footer {
+    padding: 32px 0;
+    color: var(--page-bg);
+    background-color: var(--text-color);
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
+
+.footer__text {
+    margin: 0;
+    padding: 0;
+    @include addSizeHeight(20, 16);
+}

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML-верстальщик | Василевич Илья</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.min.css">
+</head>
+
+<body class="page">
+    <header class="header">
+        <div class="container">
+            <a class="header__logo logo non">milevsky76</a>
+
+            <div class="header__theme theme">
+                <p class="theme__caption">Тема</p>
+                <ul class="theme__switcher">
+                    <li>
+                        <button class="js-button-sun theme__button theme__button--active" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="24" width="24">
+                                <path class="path-background-icon"
+                                    d="M256 144c-61.75 0-112 50.25-112 112s50.25 112 112 112 112-50.25 112-112-50.25-112-112-112zm0 192c-44.188 0-80-35.812-80-80s35.812-80 80-80 80 35.812 80 80-35.812 80-80 80zm0-224c8.833 0 16-7.167 16-16V64c0-8.833-7.167-16-16-16s-16 7.167-16 16v32c0 8.833 7.167 16 16 16zm0 288c-8.833 0-16 7.167-16 16v32c0 8.833 7.167 16 16 16s16-7.167 16-16v-32c0-8.833-7.167-16-16-16zm124.438-245.833l22.625-22.625c6.25-6.25 6.25-16.375 0-22.625s-16.375-6.25-22.625 0l-22.625 22.625c-6.25 6.25-6.25 16.375 0 22.625s16.375 6.25 22.625 0zM131.562 357.834l-22.625 22.625c-6.25 6.249-6.25 16.374 0 22.624s16.375 6.25 22.625 0l22.625-22.624c6.25-6.271 6.25-16.376 0-22.625-6.249-6.251-16.375-6.272-22.625 0zM112 256c0-8.833-7.167-16-16-16H64c-8.833 0-16 7.167-16 16s7.167 16 16 16h32c8.833 0 16-7.167 16-16zm336-16h-32c-8.833 0-16 7.167-16 16s7.167 16 16 16h32c8.833 0 16-7.167 16-16s-7.167-16-16-16zm-316.459-85.833c6.251 6.25 16.376 6.25 22.625 0 6.251-6.25 6.251-16.375 0-22.625l-22.625-22.625c-6.25-6.25-16.374-6.25-22.625 0-6.25 6.25-6.25 16.375 0 22.625l22.625 22.625zm248.918 203.645c-6.271-6.25-16.376-6.25-22.625 0-6.251 6.25-6.271 16.375 0 22.625l22.625 22.625c6.249 6.25 16.374 6.25 22.624 0s6.25-16.375 0-22.625l-22.624-22.625z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="theme__item">
+                        <button class="js-button-moon theme__button" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="32" width="32">
+                                <path class="path-background-icon"
+                                    d="M349.852 343.15c-49.875 49.916-131.083 49.916-181 0-49.916-49.918-49.916-131.125 0-181.021 13.209-13.187 29.312-23.25 47.832-29.812 5.834-2.042 12.293-.562 16.625 3.792 4.376 4.375 5.855 10.833 3.793 16.625-12.542 35.375-4 73.666 22.25 99.917 26.209 26.228 64.5 34.75 99.916 22.25 5.792-2.062 12.271-.582 16.625 3.793 4.376 4.332 5.834 10.812 3.771 16.625-6.521 18.519-16.604 34.622-29.812 47.831zM191.477 184.754c-37.438 37.438-37.438 98.354 0 135.771 40 40.021 108.125 36.416 143-8.168-35.959 2.25-71.375-10.729-97.75-37.084-26.375-26.354-39.333-61.771-37.084-97.729a90.21 90.21 0 00-8.166 7.21z" />
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <button class="header__button menu-button" id="menu-icon">
+                <span></span>
+            </button>
+
+            <nav class="header__navbar navbar">
+                <ul class="navbar__list">
+                    <li class="navbar__item">
+                        <a href="#home" class="navbar__link navbar__link--active">Главная</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="#works" class="navbar__link">Мои работы</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="#about" class="navbar__link">Обо мне</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="#skills" class="navbar__link">Технический стек</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="home" id="home">
+        <div class="container">
+            <h2 class="home__name">Василевич Илья</h2>
+
+            <div class="home__image-box">
+                <img class="home__image" width="250" height="250" src="./img/1554198692085.webp"
+                    alt="На фотографии изображён Илья Василевич">
+            </div>
+
+            <div class="home__animation-box">
+                <h3 class="home__position">Верстальщик HTML/CSS<br>Frontend Developer</h3>
+            </div>
+
+            <ul class="home__social social">
+                <li>
+                    <a href="https://t.me/l4sq2m" class="social__link social__link--telegram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50">
+                            <path class="social__background-icon"
+                                d="M25 2c12.703 0 23 10.297 23 23S37.703 48 25 48 2 37.703 2 25 12.297 2 25 2zm7.934 32.375c.423-1.298 2.405-14.234 2.65-16.783.074-.772-.17-1.285-.648-1.514-.578-.278-1.434-.139-2.427.219-1.362.491-18.774 7.884-19.78 8.312-.954.405-1.856.847-1.856 1.487 0 .45.267.703 1.003.966.766.273 2.695.858 3.834 1.172 1.097.303 2.346.04 3.046-.395.742-.461 9.305-6.191 9.92-6.693.614-.502 1.104.141.602.644-.502.502-6.38 6.207-7.155 6.997-.941.959-.273 1.953.358 2.351.721.454 5.906 3.932 6.687 4.49.781.558 1.573.811 2.298.811.725 0 1.107-.955 1.468-2.064z" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/milevsky76" class="social__link social__link--github">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50">
+                            <path class="social__background-icon"
+                                d="M17.791 46.836A1.999 1.999 0 0019 45v-5.4c0-.197.016-.402.041-.61A.611.611 0 0119 39h-3.6c-1.5 0-2.8-.6-3.4-1.8-.7-1.3-1-3.5-2.8-4.7-.3-.2-.1-.5.5-.5.6.1 1.9.9 2.7 2 .9 1.1 1.8 2 3.4 2 2.487 0 3.82-.125 4.622-.555C21.356 34.056 22.649 33 24 33v-.025c-5.668-.182-9.289-2.066-10.975-4.975-3.665.042-6.856.405-8.677.707a21.537 21.537 0 01-.151-.987c1.797-.296 4.843-.647 8.345-.714a8.162 8.162 0 01-.291-.849c-3.511-.178-6.541-.039-8.187.097-.02-.332-.047-.663-.051-.999 1.649-.135 4.597-.27 8.018-.111a9.832 9.832 0 01-.13-1.543c0-1.7.6-3.5 1.7-5-.5-1.7-1.2-5.3.2-6.6 2.7 0 4.6 1.3 5.5 2.1C21 13.4 22.9 13 25 13s4 .4 5.6 1.1c.9-.8 2.8-2.1 5.5-2.1 1.5 1.4.7 5 .2 6.6 1.1 1.5 1.7 3.2 1.6 5 0 .484-.045.951-.11 1.409 3.499-.172 6.527-.034 8.204.102-.002.337-.033.666-.051.999-1.671-.138-4.775-.28-8.359-.089a8.272 8.272 0 01-.325.98c3.546.046 6.665.389 8.548.689-.043.332-.093.661-.151.987-1.912-.306-5.171-.664-8.879-.682-1.665 2.878-5.22 4.755-10.777 4.974V33c2.6 0 5 3.9 5 6.6V45c0 .823.498 1.53 1.209 1.836C41.37 43.804 48 35.164 48 25 48 12.318 37.683 2 25 2S2 12.318 2 25c0 10.164 6.63 18.804 15.791 21.836z" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/milevsky76/" class="social__link social__link--linkedin">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="50" height="50">
+                            <path class="social__background-icon"
+                                d="M128 10.24C63.068 10.24 10.24 63.063 10.24 128c0 64.937 52.828 117.76 117.76 117.76S245.76 192.937 245.76 128c0-64.937-52.828-117.76-117.76-117.76zM92.16 179.2H71.68v-76.8h20.48zM81.92 87.04A10.237 10.237 0 0171.68 76.8c0-5.658 4.582-10.24 10.24-10.24s10.24 4.582 10.24 10.24-4.582 10.24-10.24 10.24zm107.52 92.16h-20.48v-38.4c0-9.856-8.064-17.92-17.92-17.92-9.856 0-17.92 8.064-17.92 17.92v38.4h-20.48v-76.8h20.48v9.298c5.98-5.745 14.09-9.298 23.04-9.298 18.38 0 33.28 14.9 33.28 33.28z" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:milevsky76@yahoo.com" class="social__link social__link--yahoo">
+                        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 256 256" width="50"
+                            height="50">
+                            <g style="stroke:none;stroke-width:0;stroke-dasharray:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;fill:none;fill-rule:nonzero;opacity:1"
+                                transform="matrix(2.81 0 0 2.81 1.407 1.407)">
+                                <circle cx="45" cy="45" r="45" class="social__background-icon"
+                                    style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;fill-rule:nonzero;opacity:1" />
+                                <path class="social__inner-background-icon"
+                                    d="m21.07 31.48 15.52 13.96-15.52 13.09zM45 48.97 23.68 29.79h42.64z"
+                                    style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;fill-rule:nonzero;opacity:1" />
+                                <path class="social__inner-background-icon"
+                                    d="m38.842 47.465 5.155 4.637a1.497 1.497 0 0 0 2.006 0l5.155-4.637 15.1 12.743H23.741l15.101-12.743zM53.41 45.44l15.52-13.96v27.05z"
+                                    style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;fill-rule:nonzero;opacity:1" />
+                            </g>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+
+            <a href="resume.pdf" class="home__cv button" download>Скачать резюме</a>
+        </div>
+    </section>
+
+    <section class="works" id="works">
+        <div class="container">
+            <h2 class="works__title">Мои <span>работы</span></h2>
+
+            <ul class="works__list">
+                <li class="works__item">
+                    <a href="/Lorem2/" class="works__link">
+                        <h3 class="works__subtitle">Lorem2</h3>
+                        <picture>
+                            <source srcset="./img/w16.webp" type="image/webp">
+                            <img src="./img/w16.png" class="works__img" alt="Пример работы главной страницы Lorem2">
+                        </picture>
+                    </a>
+                </li>
+
+                <li class="works__item">
+                    <a href="/Lorem1/" class="works__link">
+                        <h3 class="works__subtitle">Lorem1</h3>
+                        <picture>
+                            <source srcset="./img/w15.webp" type="image/webp">
+                            <img src="./img/w15.png" class="works__img" alt="Пример работы главной страницы Lorem1">
+                        </picture>
+                    </a>
+                </li>
+
+                <li class="works__item">
+                    <a href="/optimax/" class="works__link">
+                        <h3 class="works__subtitle">Optimax</h3>
+                        <picture>
+                            <source srcset="./img/w14.webp" type="image/webp">
+                            <img src="./img/w14.png" class="works__img" alt="Пример работы главной страницы Optimax">
+                        </picture>
+                    </a>
+                </li>
+
+                <li class="works__item">
+                    <a href="/mfg/" class="works__link">
+                        <h3 class="works__subtitle">MFG</h3>
+                        <picture>
+                            <source srcset="./img/w13.webp" type="image/webp">
+                            <img src="./img/w13.png" class="works__img" alt="Пример работы главной страницы MFG">
+                        </picture>
+                    </a>
+                </li>
+
+                <li class="works__item">
+                    <a href="/piroll/" class="works__link">
+                        <h3 class="works__subtitle">Piroll</h3>
+                        <picture>
+                            <source srcset="./img/w12.webp" type="image/webp">
+                            <img src="./img/w12.png" class="works__img" alt="Пример работы главной страницы Piroll">
+                        </picture>
+                    </a>
+                </li>
+
+                <li class="works__item">
+                    <a href="/alisayed/" class="works__link">
+                        <h3 class="works__subtitle">AliSayed</h3>
+                        <picture>
+                            <source srcset="./img/w11.webp" type="image/webp">
+                            <img src="./img/w11.png" class="works__img" alt="Пример работы главной страницы AliSayed">
+                        </picture>
+                    </a>
+                </li>
+
+                <li class="works__item">
+                    <a href="/theyalow/" class="works__link">
+                        <h3 class="works__subtitle">TheYalow</h3>
+                        <picture>
+                            <source srcset="./img/w10.webp" type="image/webp">
+                            <img src="./img/w10.png" class="works__img" alt="Пример работы главной страницы TheYalow">
+                        </picture>
+                    </a>
+                </li>
+
+                <li class="works__item">
+                    <a href="/biztime/" class="works__link">
+                        <h3 class="works__subtitle">BizTime</h3>
+                        <picture>
+                            <source srcset="./img/w9.webp" type="image/webp">
+                            <img src="./img/w9.png" class="works__img" alt="Пример работы главной страницы BizTime">
+                        </picture>
+                    </a>
+                </li>
+
+                <li class="works__item">
+                    <a href="/minto/" class="works__link">
+                        <h3 class="works__subtitle">Minto</h3>
+                        <picture>
+                            <source srcset="./img/w8.webp" type="image/webp">
+                            <img src="./img/w8.png" class="works__img" alt="Пример работы главной страницы Minto">
+                        </picture>
+                    </a>
+                </li>
+
+                <li class="works__item">
+                    <a href="/indotourism/" class="works__link">
+                        <h3 class="works__subtitle">IndoTourism</h3>
+                        <picture>
+                            <source srcset="./img/w7.webp" type="image/webp">
+                            <img src="./img/w7.png" class="works__img" alt="Пример работы главной страницы IndoTourism">
+                        </picture>
+                    </a>
+                </li>
+
+                <li class="works__item">
+                    <a href="/learncenter/" class="works__link">
+                        <h3 class="works__subtitle">LearnCenter</h3>
+                        <picture>
+                            <source srcset="./img/w6.webp" type="image/webp">
+                            <img src="./img/w6.png" class="works__img" alt="Пример работы главной страницы LearnCenter">
+                        </picture>
+                    </a>
+                </li>
+
+                <li class="works__item">
+                    <a href="/lispummedia/" class="works__link">
+                        <h3 class="works__subtitle">LispumMedia</h3>
+                        <picture>
+                            <source srcset="./img/w5.webp" type="image/webp">
+                            <img src="./img/w5.png" class="works__img" alt="Пример работы главной страницы LispumMedia">
+                        </picture>
+                    </a>
+                </li>
+
+                <li class="works__item">
+                    <a href="/corporateflyer/" class="works__link">
+                        <h3 class="works__subtitle">CorporateFlyer"</h3>
+                        <picture>
+                            <source srcset="./img/w4.webp" type="image/webp">
+                            <img src="./img/w4.png" class="works__img"
+                                alt="Пример работы главной страницы CorporateFlyer">
+                        </picture>
+                    </a>
+                </li>
+
+                <li class="works__item">
+                    <a href="/internetbusiness/" class="works__link">
+                        <h3 class="works__subtitle">InternetBusiness</h3>
+                        <picture>
+                            <source srcset="./img/w3.webp" type="image/webp">
+                            <img src="./img/w3.png" class="works__img"
+                                alt="Пример работы главной страницы InternetBusiness">
+                        </picture>
+                    </a>
+                </li>
+
+                <li class="works__item">
+                    <a href="/golden/" class="works__link">
+                        <h3 class="works__subtitle">Golden</h3>
+                        <picture>
+                            <source srcset="./img/w2.webp" type="image/webp">
+                            <img src="./img/w2.png" class="works__img" alt="Пример работы главной страницы Golden">
+                        </picture>
+
+                    </a>
+                </li>
+
+                <li class="works__item">
+                    <a href="/game-arena/" class="works__link">
+                        <h3 class="works__subtitle">Game "Arena"</h3>
+                        <picture>
+                            <source srcset="./img/w1.webp" type="image/webp">
+                            <img src="./img/w1.png" class="works__img"
+                                alt="Пример работы главной страницы Game &#34;Аrena&#34;">
+                        </picture>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="about__title">Обо <span>мне</span></h2>
+
+            <div class="about__content">
+                <p class="about__promo">
+                    Способен оперативно принимать решения, самостоятельно находить пути решения поставленной задачи,
+                    быстро обучаюсь, вежливый, доброжелательный, ответственный, исполнительный!
+                </p>
+                <div class="about__knowledge">
+                    <b class="about__subtitle">Знания</b>
+                    <ul class="about__list">
+                        <li>опыт создания страниц на основе дизайн-макетов</li>
+                        <li>опыт адаптивной, кроссбраузерной, семантической верстки</li>
+                        <li>понимание DOM</li>
+                        <li>знания Flex, Grid</li>
+                        <li>понимания методологии БЭМ</li>
+                    </ul>
+                </div>
+                <div class="about__skills">
+                    <b class="about__subtitle">Навыки</b>
+                    <ul class="about__list">
+                        <li>оптимизация под retina экраны</li>
+                        <li>работа с графическими редакторами Figma, Photoshop</li>
+                        <li>умение работать с Git</li>
+                        <li>умение работать с препроцессорами Sass или Less</li>
+                        <li>соблюдение pixel perfect</li>
+                        <li>умение работать с чужим кодом</li>
+                        <li>умение работать с большим объемом информации</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="skills__title">Технический <span>стек</span></h2>
+
+            <ul class="skills__list">
+                <li class="skills__item skills__item--html">
+                    <img class="skills__image" src="img/html5.svg" alt="Иконка HTML5">
+                </li>
+                <li class="skills__item skills__item--css">
+                    <img class="skills__image" src="img/css3.svg" alt="Иконка CSS3">
+                </li>
+                <li class="skills__item skills__item--js">
+                    <img class="skills__image" src="img/javascript.svg" alt="Иконка JavaScript">
+                </li>
+                <li class="skills__item skills__item--gulp">
+                    <img class="skills__image" src="img/gulp.svg" alt="Иконка Gulp">
+                </li>
+                <li class="skills__item skills__item--git">
+                    <img class="skills__image" src="img/git.svg" alt="Иконка Git">
+                </li>
+                <li class="skills__item skills__item--sass">
+                    <img class="skills__image" src="img/sass.svg" alt="Иконка Sass">
+                </li>
+                <li class="skills__item skills__item--less">
+                    <img class="skills__image" src="img/less.svg" alt="Иконка Less">
+                </li>
+                <li class="skills__item skills__item--npm">
+                    <img class="skills__image" src="img/npm.svg" alt="Иконка NPM">
+                </li>
+                <li class="skills__item skills__item--pug">
+                    <img class="skills__image" src="img/pug.svg" alt="Иконка Pug">
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="footer__text">© Copyright 2023 Ilya&nbsp;Vasilevich</p>
+        </div>
+    </footer>
+
+    <script src="./js/main.min.js"></script>
+</body>
+
+</html>

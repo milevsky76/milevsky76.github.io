@@ -1,0 +1,38 @@
+.social {
+    padding: 0;
+    width: 248px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.social__link {
+    display: block;
+    width: 50px;
+    height: 50px;
+
+    &--telegram:hover .social__background-icon {
+        fill: var(--social-telegram);
+    }
+
+    &--github:hover .social__background-icon {
+        fill: var(--social-github);
+    }
+
+    &--linkedin:hover .social__background-icon {
+        fill: var(--social-linkedin);
+    }
+
+    &--yahoo:hover .social__background-icon {
+        fill: var(--social-yahoo);
+    }
+}
+
+.social__background-icon {
+    fill: var(--text-color);
+}
+
+.social__inner-background-icon {
+    fill: var(--page-bg);
+}

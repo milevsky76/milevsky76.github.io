@@ -1,0 +1,47 @@
+.theme {
+    display: flex;
+    gap: 16px;
+}
+
+.theme__caption {
+    margin: 0;
+    padding: 0;
+
+    font-size: 20px;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.theme__switcher {
+    display: flex;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.theme__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    background-color: var(--page-bg);
+    border: 1px solid var(--text-color);
+    border-radius: 0 50% 0 50%;
+    cursor: pointer;
+}
+
+.theme__button--active {
+    background-color: var(--text-color);
+}
+
+.theme__button .path-background-icon {
+    fill: var(--text-color);
+}
+
+.theme__button--active .path-background-icon {
+    fill: var(--page-bg);
+}

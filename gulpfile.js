@@ -1,164 +1,116 @@
-let project_folder = 'dist';
-
-let source_folder = 'src';
-
-let fs = require('fs');
-
-let path = {
-    build: {
-        html: project_folder + '/',
-        css: project_folder + '/css/',
-        js: project_folder + '/js/',
-        img: project_folder + '/img/',
-        fonts: project_folder + '/fonts/',
-    },
-    src: {
-        html: [source_folder + '/*.html', '!' + source_folder + '/_*.html'],
-        css: source_folder + '/sass/style.sass',
-        js: source_folder + '/js/script.js',
-        img: source_folder + '/img/**/*.{jpg,png,svg,ico,webp}',
-        fonts: source_folder + '/fonts/*.ttf',
-    },
-    watch: {
-        html: source_folder + '/**/*.html',
-        css: source_folder + '/sass/**/*.sass',
-        js: source_folder + '/js/**/*.js',
-        img: source_folder + '/img/**/*.{jpg,png,svg,ico,webp}',
-    },
-    clean: './' + project_folder + '/'
-}
-
-let {
+const {
     src,
-    dest
-} = require('gulp'),
-    gulp = require('gulp'),
-    browsersync = require('browser-sync').create(),
-    fileinclude = require('gulp-file-include'),
-    del = require('del'),
-    scss = require('gulp-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    group_media = require('gulp-group-css-media-queries'),
-    clean_css = require('gulp-clean-css'),
-    rename = require('gulp-rename'),
-    uglify = require('gulp-uglify-es').default,
-    imagemin = require('gulp-imagemin'),
-    webp = require('gulp-webp'),
-    webphtml = require('gulp-webp-html'),
-    webpcss = require('gulp-webp-css'),
-    ttf2woff = require('gulp-ttf2woff'),
-    ttf2woff2 = require('gulp-ttf2woff2'),
-    fonter = require('gulp-fonter'),
-    htmlmin = require('gulp-htmlmin');
-
-function browserSync() {
-    browsersync.init({ server: { baseDir: './' + project_folder + '/'}, port: 3000, browser: 'firefox', notify: false })
-}
-
-function html() {
-    return src(path.src.html)
-        .pipe(fileinclude())
-        .pipe(webphtml())
-        .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(dest(path.build.html))
-        .pipe(browsersync.stream())
-}
-
-function css() {
-    return src(path.src.css)
-        .pipe(scss({ outputStyle: 'expanded' }))
-        .pipe(group_media())
-        .pipe(autoprefixer({ overrideBrowserslist: ['last 5 versions'], cascade: true })) //, grid: true
-        .pipe(webpcss())
-        .pipe(dest(path.build.css))
-        .pipe(clean_css())
-        .pipe(rename({ extname: '.min.css'}))
-        .pipe(dest(path.build.css))
-        .pipe(browsersync.stream())
-}
-
-function js() {
-    return src(path.src.js)
-        .pipe(fileinclude())
-        .pipe(dest(path.build.js))
-        .pipe(uglify())
-        .pipe(rename({ extname: '.min.js'}))
-        .pipe(dest(path.build.js))
-        .pipe(browsersync.stream())
-}
-
-function images() {
-    return src(path.src.img)
-        .pipe(webp({quality: 70}))
-        .pipe(dest(path.build.img))
-        .pipe(src(path.src.img))
-        .pipe(imagemin({ progressive: true, svgoPlugins: [{ removeViewBox: false }], interlaced: true, optimizationLevel: 3 }))
-        .pipe(dest(path.build.img))
-        .pipe(browsersync.stream())
-}
-
-function fonts() {
-    src(path.src.fonts)
-        .pipe(ttf2woff())
-        .pipe(dest(path.build.fonts));
-    return src(path.src.fonts)
-        .pipe(ttf2woff2())
-        .pipe(dest(path.build.fonts));
-}
-
-gulp.task('otftottf', function () {
-    return src([source_folder + '/fonts/*.otf'])
-        .pipe(fonter({ formats: ['ttf'] }))
-        .pipe(dest(source_folder + '/fonts/'));
-})
-
-function fontsStyle(params) {
-    let file_content = fs.readFileSync(source_folder + '/sass/_fonts.scss');
-
-    if (file_content == '') {
-        fs.writeFile(source_folder + '/sass/_fonts.scss', '', cb);
-
-        return fs.readdir(path.build.fonts, function (err, items) {
-            if (items) {
-                let c_fontname;
-                for (var i = 0; i < items.length; i++) {
-                    let fontname = items[i].split('.');
-                    fontname = fontname[0];
-                    if (c_fontname != fontname) {
-                        fs.appendFile(source_folder + '/sass/_fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
-                    }
-                    c_fontname = fontname;
-                }
-            }
-        })
-    }
-}
-
-function cb() {
-
-}
-
-function watchFiles() {
-    gulp.watch([path.watch.html], html).on('change', browsersync.reload);
-    gulp.watch([path.watch.css], css).on('change', browsersync.reload);
-    // gulp.watch([path.watch.js], js).on('change', browsersync.reload);
-    gulp.watch([path.watch.img], images).on('change', browsersync.reload);
-}
-
-function clean() {
-    return del(path.clean);
-}
-
-let build = gulp.series(clean, gulp.parallel(css, html, images));//, fonts), fontsStyle);
-
-let watch = gulp.parallel(build, watchFiles, browserSync);
-
-exports.fontsStyle = fontsStyle;
-exports.fonts = fonts;
-exports.images = images;
-exports.js = js;
-exports.css = css;
-exports.html = html;
-exports.build = build;
-exports.watch = watch;
-exports.default = watch;
+    dest,
+    watch,
+    parallel,
+    series
+  } = require('gulp');
+  
+  const scss = require('gulp-sass')(require('sass'));
+  const concat = require('gulp-concat');
+  const uglify = require('gulp-uglify-es').default;
+  const browserSync = require('browser-sync').create();
+  const autoprefixer = require('gulp-autoprefixer');
+  const clean = require('gulp-clean');
+  const avift = require('gulp-avif');
+  const webp = require('gulp-webp');
+  const imagemin = require('gulp-imagemin');
+  const newer = require('gulp-newer');
+  const svgSprite = require('gulp-svg-sprite');
+  
+  function sprite() {
+    return src('app/img/*.svg')
+      .pipe(svgSprite({
+        mode: {
+          stack: {
+            sprite: '../sprite.svg',
+            example: true
+          }
+        }
+      }))
+      .pipe(dest('app/img'))
+  }
+  
+  function images() {
+    return src(['app/img/src/*.*', '!app/img/src/*.svg'])
+      // .pipe(newer('app/img'))
+      // .pipe(avift({
+      //   quality: 50
+      // }))
+  
+      // .pipe(src('app/img/src/*.*'))
+      .pipe(newer('app/img'))
+      .pipe(webp())
+  
+      .pipe(src('app/img/src/*.*'))
+      .pipe(newer('app/img'))
+      .pipe(imagemin())
+  
+      .pipe(dest('app/img'))
+  }
+  
+  function styles() {
+    return src('app/scss/style.scss')
+      .pipe(concat('style.min.css'))
+      .pipe(scss({
+        outputStyle: 'compressed'
+      }))
+      .pipe(autoprefixer({
+        overrideBrowserslist: ['last 2 versions']
+      }))
+      .pipe(dest('app/css'))
+      .pipe(browserSync.stream())
+  }
+  
+  function scripts() {
+    return src('app/js/main.js')
+      .pipe(concat('main.min.js'))
+      .pipe(uglify())
+      .pipe(dest('app/js'))
+      .pipe(browserSync.stream())
+  }
+  
+  function watching() {
+    watch(['app/scss/**/*.scss'], styles)
+    // watch(['app/img/src'], images)
+    watch(['app/js/main.js'], scripts)
+    watch(['app/*.html']).on('change', browserSync.reload)
+  }
+  
+  function browsersync() {
+    browserSync.init({
+      server: {
+        baseDir: "app/"
+      },
+      browser: 'chrome'
+    });
+  }
+  
+  function building() {
+    return src([
+        'app/css/style.min.css',
+        'app/img/*.*',
+        // '!app/img/*.svg',
+        // 'app/img/sprite.svg',
+        'app/js/main.min.js',
+        'app/*.html'
+      ], {
+        base: 'app'
+      })
+      .pipe(dest('docs'))
+  }
+  
+  function cleanDocs() {
+    return src('docs')
+      .pipe(clean())
+  }
+  
+  exports.styles = styles;
+  exports.sprite = sprite;
+  exports.images = images;
+  exports.scripts = scripts;
+  exports.watching = watching;
+  exports.browsersync = browsersync;
+  
+  exports.build = series(cleanDocs, building);
+  exports.default = parallel(styles, /*images, */ scripts, browsersync, watching);

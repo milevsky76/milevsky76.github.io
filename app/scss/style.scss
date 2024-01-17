@@ -1,0 +1,26 @@
+@import '_reset';
+
+// Переменные
+@import '_variables';
+
+// Миксины
+@import '_mixins';
+
+// Общие настройки
+@import '_scaffolding';
+
+@import '_header';
+@import '_menu-button';
+@import '_logo';
+@import '_theme';
+@import '_navbar';
+
+@import '_works';
+
+@import '_home';
+@import '_social';
+
+@import '_about';
+@import '_skills';
+@import '_footer';
+@import '_media';

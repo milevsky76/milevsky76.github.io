@@ -1,0 +1,93 @@
+.home {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.home__name {
+    padding: 0;
+    margin: 0 0 32px;
+    font-weight: bold;
+    @include addSizeHeight(60, 30);
+}
+
+.home__image-box {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0);
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border-top: 10px solid transparent;
+        border-bottom: 1px solid transparent;
+        border-left: 3px solid var(--accent);
+        border-right: 1 solid transparent;
+
+        animation: aboutSpinner 15s linear infinite;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0);
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border-top: 1px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 1px solid transparent;
+        border-right: 3px solid var(--accent);
+
+        animation: aboutSpinner 15s linear infinite;
+    }
+}
+
+.home__image {
+    display: block;
+    border-radius: 50%;
+}
+
+.home__animation-box {
+    position: relative;
+    // width: 35rem;
+    text-align: center;
+}
+
+.home__position {
+    padding: 0;
+    margin: 0;
+    margin: 32px 0;
+    @include addSizeHeight(44, 22);
+    font-weight: bold;
+    color: transparent;
+    -webkit-text-stroke: .7px var(--text-color);
+    background-image: linear-gradient(var(--text-color), var(--text-color));
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-position: -50rem 0;
+    animation: homeBgTest 6s linear infinite;
+    // animation-delay: 0s;
+}
+
+.home__social {
+    margin: 16px 0;
+}
+
+.home__cv {
+    margin: 32px 0 0;
+}

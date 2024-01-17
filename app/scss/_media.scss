@@ -1,0 +1,42 @@
+@media (min-width: 1280px) {
+    // .menu-button {
+    //     display: none;
+    // }
+
+    // .navbar {
+    //     position: static;
+    //     display: flex;
+    //     width: auto;
+    //     padding: 0;
+    //     background-color: transparent;
+    //     box-shadow: none; 
+    // }
+
+    // .navbar__link {
+    //     margin: 0;
+    // }
+
+    // .navbar__link:not(.navbar__link:first-child) {
+    //     margin-left: 56px;
+    // }
+}
+
+@keyframes homeBgTest {
+
+    0%,
+    10%,
+    100% {
+        background-position: -50rem 0;
+    }
+
+    65%,
+    85% {
+        background-position: 0 0;
+    }
+}
+
+@keyframes aboutSpinner {
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
